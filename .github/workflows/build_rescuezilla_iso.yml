@@ -45,10 +45,10 @@ jobs:
       - name: Run unit tests within the Docker container
         run: make docker-test
 
-      # - run: make docker-status
-      # - name: Make Ubuntu 22.10 (Kinetic) ISO
-        # run: make docker-kinetic
-      # - run: sudo mv build/rescuezilla.amd64.kinetic.iso build/rescuezilla-${{env.DEB_VERSION}}-64bit.kinetic.iso
+      - run: make docker-status
+      - name: Make Ubuntu 22.10 (Kinetic) ISO
+        run: make docker-kinetic
+      - run: sudo mv build/rescuezilla.amd64.kinetic.iso build/rescuezilla-${{env.DEB_VERSION}}-64bit.kinetic.iso
 
       - run: make docker-status
       - name: Make Ubuntu 22.04 LTS (Jammy) ISO [LTS  = Long Term Support]
@@ -108,10 +108,10 @@ jobs:
           name: rescuezilla_${{env.DEB_VERSION}}-1_all.deb
           path: build/rescuezilla_${{env.DEB_VERSION}}-1_all.deb
 
-      # - uses: actions/upload-artifact@v4
-        # with:
-          # name: rescuezilla-${{env.DEB_VERSION}}-64bit.kinetic.iso
-          # path: build/rescuezilla-${{env.DEB_VERSION}}-64bit.kinetic.iso
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rescuezilla-${{env.DEB_VERSION}}-64bit.kinetic.iso
+          path: build/rescuezilla-${{env.DEB_VERSION}}-64bit.kinetic.iso
 
       - uses: actions/upload-artifact@v4
         with:
